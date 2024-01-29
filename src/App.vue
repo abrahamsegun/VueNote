@@ -16,6 +16,10 @@ function getRandomColor() {
 
   }
 
+  const handleTextdelete =(e)=>{
+        e.target.parentElement.parentElement.previousElementSibling.parentElement.remove()
+      
+  }
   const addnote = (e)=>{
 
 
@@ -70,8 +74,9 @@ function getRandomColor() {
             {{todo.text  }}
              </div>
 
-            <div class="date">
-            {{ todo.date }}
+            <div class="datediv">
+              <div class="date"> {{ todo.date }}</div>
+              <div><button class="delete" @click="handleTextdelete">Delete</button></div>
             </div>
 
       
@@ -177,9 +182,24 @@ function getRandomColor() {
  
 
 }
+.datediv{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
 .date{
   font-size: 1.3rem;
   font-weight: bold;
+}
+.delete{
+background-color: rgb(227, 201, 201);
+color: red;
+font: 1.3rem bold;
+border-radius: .2rem;
+cursor: pointer;
+font-weight: 600;
+letter-spacing: .08rem;
 }
 .stubborn{
     width: 100%;
@@ -231,6 +251,8 @@ function getRandomColor() {
   font-weight: bolder;
   background-color: rgb(195, 92, 92);
 }
+
+
 @media screen and (max-width: 774px) {
    
   .main{
@@ -252,8 +274,13 @@ function getRandomColor() {
   font-size: 1.4rem;
   text-wrap: wrap;
 }
-
+.delete{
+background-color: white;
+color: red;
 }
+}
+
+
 @media screen and (max-width: 1200px) and (min-width: 775px) {
   
   .main{
@@ -274,6 +301,10 @@ function getRandomColor() {
 
   font-size: 1.6rem;
   text-wrap: wrap;
+}
+.delete{
+background-color: white;
+color: red;
 }
 }
 </style>
